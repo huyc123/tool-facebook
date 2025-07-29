@@ -63,7 +63,7 @@ namespace selenium66
                 loginButton.Click();
 
 
-                   nThread.Sleep(5000);
+                Thread.Sleep(5000);
 
                 //Chromedriver.Navigate().GoToUrl("https://www.facebook.com/bong.teen/posts/pfbid0EpsaM2KwrkN4VyFVJVx4dVvqbXgks4ppJeXHfhvZKTWms6mLFCeGG3QaZoKupD1bl");
                 //Chromedriver.Navigate().GoToUrl("https://www.facebook.com/story.php?story_fbid=1173509351469154&id=100064302996623");
