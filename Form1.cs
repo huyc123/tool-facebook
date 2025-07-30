@@ -62,6 +62,75 @@ namespace selenium66
 
                 Chromedriver.Navigate().GoToUrl("https://www.facebook.com/photo.php?fbid=1235704111902406");
                 Thread.Sleep(5000);
+
+                // khúc trên ngon rồi, giờ làm phía dưới
+                
+                // Khúc này sẽ bấm vào biểu tượng bình luận để vào commet
+                // nếu lỗi thì không làm gì cả
+                try
+                {
+                    //
+                    // Nhấn nút đăng nhập
+                    var bieuTuongBinhLuanXpath = "/html/body/div[3]/div/div[4]/div/div[5]";
+                    var bieuTuongBinhLuanXpathButton = Chromedriver.FindElement(By.XPath(bieuTuongBinhLuanXpath));
+                    bieuTuongBinhLuanXpathButton.Click();
+                }
+                catch(Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+
+                // gửi nội dung bình luận vào input
+                try
+                {
+                    var inputNoiDungBinhLuanXpath = "/html/body/div[3]/div/div[4]/div/div/div[1]/div[3]/div[2]/div/div[1]/textarea";
+                    var inputNoiDungBinhLuanXpathButton = Chromedriver.FindElement(By.XPath(inputNoiDungBinhLuanXpath));
+                    inputNoiDungBinhLuanXpathButton.SendKeys("wow nha :)))");
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+
+                //nhấn vào biểu tưởng gửi comment
+                try
+                {
+                    var bieuTuongGuiCommentXpath = "/html/body/div[3]/div/div[4]/div/div/div[1]/div[3]/div[2]/div/div[8]/div[1]/div/div[2]/div/div";
+                    var bieuTuongGuiCommentXpathButton = Chromedriver.FindElement(By.XPath(bieuTuongGuiCommentXpath));
+                    bieuTuongGuiCommentXpathButton.Click();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+
+
+
+
+
+
+
+                //Màn hình đang ở hiển thị anh, giờ bấm nút bình luận để hiện giao diện cho phép nhập bình luận
+
+
+                // sau khi chờ -> hiển thị arena thì send text
+
+
+                // sau khi sendtext thì bấm gửi để hoàn thành comment
+
+
+                // thoát phiên làm việc hiện tại
+
+
+
+
+
+
+
+
+
+
+
             }
         }
     }
