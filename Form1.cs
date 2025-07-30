@@ -2,6 +2,7 @@
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support.UI;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Tab;
 
 namespace selenium66
 {
@@ -45,11 +46,11 @@ namespace selenium66
             else
             {
                 // Không có phần tử nào -> tiếp tục chạy chương trình
+               
 
 
 
-
-
+                
                 var email = Chromedriver.FindElement(By.Id("m_login_email"));
                 email.SendKeys("0967814637");
 
@@ -69,25 +70,35 @@ namespace selenium66
                 //Chromedriver.Navigate().GoToUrl("https://www.facebook.com/story.php?story_fbid=1173509351469154&id=100064302996623");
 
 
-                Chromedriver.Navigate().GoToUrl("https://www.facebook.com/story.php?story_fbid=1231673242305493&id=100063884875945");
+                Chromedriver.Navigate().GoToUrl("https://www.facebook.com/photo.php?fbid=1235704111902406");
 
 
 
                 Thread.Sleep(5000);
+
+
+
                 //bamvaocmt
 
-
-                string nutanvao = "/html/body/div[3]/div/div[1]/div[10]/div[5]/div/div[3]";
+                string nutanvao = "/html/body/div[3]/div/div[3]/div/div/div/div[5]/div[2]/div";
                 var XPathnutanvao = wait.Until(driver => driver.FindElement(By.XPath(nutanvao)));
+
 
                 //// Cuộn phần tử vào giữa màn hình
                 ((IJavaScriptExecutor)Chromedriver).ExecuteScript("arguments[0].scrollIntoView({block: 'center'});", XPathnutanvao);
                 Thread.Sleep(500); // Chờ một chút sau khi scroll
 
-                // Cách click an toàn bằng JavaScript (bỏ qua phần tử che)
-                ((IJavaScriptExecutor)Chromedriver).ExecuteScript("arguments[0].click();", XPathnutanvao);
+               
 
-
+                if (Chromedriver.FindElements(By.XPath(nutanvao)).Count == 0)
+                {
+                    // Thực hiện hành động với phần tử tiếp theo
+                    string nutTieptheo = "/html/body/div[3]/div/div[3]/div/div/div/div[5]/div[2]/div";
+                    var XPathnutTiepTheo = Chromedriver.FindElement(By.XPath(nutTieptheo));
+                    ((IJavaScriptExecutor)Chromedriver).ExecuteScript("arguments[0].scrollIntoView({block: 'center'});", XPathnutTiepTheo);
+                    Thread.Sleep(500);
+                    XPathnutTiepTheo.Click();
+                }
 
 
 
