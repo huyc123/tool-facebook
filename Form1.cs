@@ -60,7 +60,9 @@ namespace selenium66
                 //Chromedriver.Navigate().GoToUrl("https://www.facebook.com/bong.teen/posts/pfbid0EpsaM2KwrkN4VyFVJVx4dVvqbXgks4ppJeXHfhvZKTWms6mLFCeGG3QaZoKupD1bl");
                 //Chromedriver.Navigate().GoToUrl("https://www.facebook.com/story.php?story_fbid=1173509351469154&id=100064302996623");
 
-                Chromedriver.Navigate().GoToUrl("https://www.facebook.com/photo.php?fbid=1235704111902406");
+                //Chromedriver.Navigate().GoToUrl("https://www.facebook.com/photo.php?fbid=1235704111902406");
+                Chromedriver.Navigate().GoToUrl(textBox1.Text);
+
                 Thread.Sleep(5000);
 
                 // khúc trên ngon rồi, giờ làm phía dưới
@@ -69,7 +71,7 @@ namespace selenium66
                 // nếu lỗi thì không làm gì cả
                 try
                 {
-                    //
+                    Thread.Sleep(5000);
                     // Nhấn nút đăng nhập
                     var bieuTuongBinhLuanXpath = "/html/body/div[3]/div/div[4]/div/div[5]";
                     var bieuTuongBinhLuanXpathButton = Chromedriver.FindElement(By.XPath(bieuTuongBinhLuanXpath));
@@ -83,9 +85,11 @@ namespace selenium66
                 // gửi nội dung bình luận vào input
                 try
                 {
+                    Thread.Sleep(3000);
+
                     var inputNoiDungBinhLuanXpath = "/html/body/div[3]/div/div[4]/div/div/div[1]/div[3]/div[2]/div/div[1]/textarea";
                     var inputNoiDungBinhLuanXpathButton = Chromedriver.FindElement(By.XPath(inputNoiDungBinhLuanXpath));
-                    inputNoiDungBinhLuanXpathButton.SendKeys("wow nha :)))");
+                    inputNoiDungBinhLuanXpathButton.SendKeys(textBoxNoiDungComment.Text);
                 }
                 catch (Exception ex)
                 {
@@ -95,6 +99,8 @@ namespace selenium66
                 //nhấn vào biểu tưởng gửi comment
                 try
                 {
+                    Thread.Sleep(2000);
+
                     var bieuTuongGuiCommentXpath = "/html/body/div[3]/div/div[4]/div/div/div[1]/div[3]/div[2]/div/div[8]/div[1]/div/div[2]/div/div";
                     var bieuTuongGuiCommentXpathButton = Chromedriver.FindElement(By.XPath(bieuTuongGuiCommentXpath));
                     bieuTuongGuiCommentXpathButton.Click();
@@ -104,12 +110,7 @@ namespace selenium66
                     Console.WriteLine(ex.Message);
                 }
 
-
-
-
-
-
-
+                MessageBox.Show("Thông báo từ a huy", "Ngon lành nha");
                 //Màn hình đang ở hiển thị anh, giờ bấm nút bình luận để hiện giao diện cho phép nhập bình luận
 
 
